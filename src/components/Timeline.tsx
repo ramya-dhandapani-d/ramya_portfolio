@@ -101,7 +101,7 @@ const Timeline = () => {
           {/* Timeline */}
           <div className="relative space-y-8 md:space-y-12">
             {/* Vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border hidden md:block" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-border hidden md:block z-0" />
             
             {timelineData.map((item, index) => (
               <Collapsible
@@ -114,11 +114,25 @@ const Timeline = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Content - alternating sides */}
-                  <div className="flex items-center gap-4 md:gap-8">
+                  <div className="flex items-center justify-between relative md:px-8">
+                    {/* Center - Icon on timeline */}
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-10">
+                      <div className={`w-12 h-12 rounded-full ${
+                        item.type === 'experience' 
+                          ? 'bg-blue-500' 
+                          : 'bg-gradient-to-br from-pink-500 to-red-500'
+                      } flex items-center justify-center shadow-lg`}>
+                        {item.type === 'experience' ? (
+                          <Briefcase className="w-6 h-6 text-white" />
+                        ) : (
+                          <GraduationCap className="w-6 h-6 text-white" />
+                        )}
+                      </div>
+                    </div>
                     {/* Left side - Card (even) or Date (odd) */}
-                    <div className={`w-full md:w-5/12 ${index % 2 === 0 ? '' : 'md:text-right'}`}>
+                    <div className={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? '' : 'md:text-right md:flex md:justify-end'}`}>
                       {index % 2 === 0 ? (
-                        <Card className="border-border shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 bg-card">
+                        <Card className="relative border-border shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 bg-card rounded-2xl after:content-[''] after:absolute after:right-[-12px] after:top-1/2 after:-translate-y-1/2 after:w-0 after:h-0 after:border-[12px] after:border-transparent after:border-l-card md:mr-3">
                           <CardContent className="p-5 md:p-6">
                             <div className="flex items-start justify-between gap-2">
                               <div className="flex-1">
@@ -207,29 +221,14 @@ const Timeline = () => {
                       )}
                     </div>
                     
-                    {/* Center - Icon on timeline */}
-                    <div className="hidden md:flex justify-center items-center w-auto flex-shrink-0">
-                      <div className={`w-12 h-12 rounded-full ${
-                        item.type === 'experience' 
-                          ? 'bg-blue-500' 
-                          : 'bg-gradient-to-br from-pink-500 to-red-500'
-                      } flex items-center justify-center z-20 shadow-lg`}>
-                        {item.type === 'experience' ? (
-                          <Briefcase className="w-6 h-6 text-white" />
-                        ) : (
-                          <GraduationCap className="w-6 h-6 text-white" />
-                        )}
-                      </div>
-                    </div>
-                    
                     {/* Right side - Date (even) or Card (odd) */}
-                    <div className={`w-full md:w-5/12 ${index % 2 === 0 ? '' : 'md:text-left'}`}>
+                    <div className={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:flex md:justify-start' : 'md:text-left'}`}>
                       {index % 2 === 0 ? (
                         <Badge variant="secondary" className="text-sm whitespace-nowrap inline-block">
                           {item.period}
                         </Badge>
                       ) : (
-                        <Card className="border-border shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 bg-card">
+                        <Card className="relative border-border shadow-soft hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 bg-card rounded-2xl before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:border-[12px] before:border-transparent before:border-r-card md:ml-3">
                           <CardContent className="p-5 md:p-6">
                             <div className="flex items-start justify-between gap-2">
                               <div className="flex-1">
@@ -337,7 +336,7 @@ const Timeline = () => {
                       </Badge>
                     </div>
                     
-                    <Card className="border-border shadow-soft bg-card">
+                    <Card className="border-border shadow-soft bg-card rounded-2xl">
                       <CardContent className="p-5">
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex-1">

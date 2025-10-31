@@ -5,12 +5,11 @@ import { FolderGit2, Calendar, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Financial Report Chat Agent",
-    period: "August 2025 - Present",
-    description: "Developing AI agent retrieving annual and monthly company reports from web and supports natural-language interaction with documents",
+    title: "Conversational Data Visualization Tool",
+    period: "October 2025 - Present",
+    description: "A tool that lets anyone explore and visualize datasets using natural language - no coding or SQL required",
     details: [
-      "Implemented system leverages large language models with retrieval-augmented generation",
-      "Multi-tool orchestration and dynamic vector updates for accurate information retrieval"
+      "The backend (API-based) handles query generation, SQL execution, and CSV/DB data retrieval, while the frontend-built with React and Tailwind-renders visualizations, manages dashboards, and maintains chat-based interaction",
     ],
     tags: ["AI/ML", "LLMs", "RAG", "Python", "Agentic AI"],
     demoLink: "",
@@ -43,7 +42,7 @@ const Projects = () => {
               Projects
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Innovative research and development in AI and machine learning
+              Weekend | Academic projects
             </p>
           </div>
           

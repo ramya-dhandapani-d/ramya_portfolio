@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, MapPin, Phone } from "lucide-react";
+import { Mail, Linkedin, MapPin } from "lucide-react";
 
 const contactInfo = [
   {
@@ -8,12 +7,6 @@ const contactInfo = [
     label: "Email",
     value: "ramyadvanitha@gmail.com",
     href: "mailto:ramyadvanitha@gmail.com"
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "(213) 843-7556",
-    href: "tel:+12138437556"
   },
   {
     icon: MapPin,
@@ -84,18 +77,7 @@ const Contact = () => {
                 })}
               </div>
               
-              <div className="text-center">
-                <Button 
-                  size="lg"
-                  className="bg-gradient-accent hover:opacity-90 transition-opacity shadow-soft"
-                  asChild
-                >
-                  <a href="mailto:ramyadvanitha@gmail.com">
-                    <Mail className="w-5 h-5 mr-2" />
-                    Send me an email
-                  </a>
-                </Button>
-              </div>
+              {/* CTA removed to avoid duplicate email display (email is shown above) */}
             </CardContent>
           </Card>
         </div>
