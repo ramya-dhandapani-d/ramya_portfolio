@@ -82,7 +82,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full shadow-elevated animate-float ring-4 ring-primary/20 overflow-hidden">
                 <img 
-                  src="/images/ramya_profile.png" 
+                  src="/images/ramya_profile.jpg" 
                   alt="Ramya Dhandapani"
                   className="w-full h-full object-cover"
                   loading="eager"
